@@ -5,23 +5,36 @@ L = 1200; % Length of bridge
 n = 1200; % Discretize into 1 mm segments
 P = 400; % Total weight of train [N]
 x = linspace(0, L, n+1); % x-axis
+axle_spacing = 100; % Distance between train axles [mm]
+num_axles = 6; % Total number of train axles
+P_axle = P / num_axles; % Load per axle
 
 %% 1. SFD, BMD under train loading
-x_train = [52 228 392 568 732 908]; % Train Load Locations
-P_train = [1 1 1 1 1 1] * P/6; % Load distributed equally among axles
-n_train = 3; % Number of train locations
-SFDi = zeros(n_train, n+1); % SFD for each train location
-BMDi = zeros(n_train, n+1); % BMD for each train location
+train_positions = linspace(0, L + axle_spacing * (num_axles - 1), n + 1); % Train movement positions
+SFDi = zeros(length(train_positions), n+1); % SFD for each train position
+BMDi = zeros(length(train_positions), n+1); % BMD for each train position
 
 % Calculate SFD and BMD for each train position
-for i = 1:n_train
-    % Set train position
-    train_start = x_train(i);
-    train_end = train_start + 100;
+for i = 1:length(train_positions)
+    % Current position of the train's first axle
+    train_start = train_positions(i);
+    
+    % Determine which axles are on the bridge
+    axles_on_bridge = ((train_start + (0:num_axles-1) * axle_spacing) >= 0) & ...
+                      ((train_start + (0:num_axles-1) * axle_spacing) <= L);
+    
+    % Axle positions on the bridge
+    axle_positions = train_start + (0:num_axles-1) * axle_spacing;
+    axle_positions = axle_positions(axles_on_bridge);
     
     % Define load distribution along the bridge
     w = zeros(1, n+1);
-    w((x >= train_start) & (x <= train_end)) = -P_train(i);
+    for j = 1:length(axle_positions)
+        axle_index = find(x >= axle_positions(j), 1);
+        if ~isempty(axle_index)
+            w(axle_index) = w(axle_index) - P_axle; % Apply axle load
+        end
+    end
     
     % Calculate SFD by numerical integration
     SFDi(i, :) = cumtrapz(x, w);
@@ -33,6 +46,22 @@ end
 % Calculate envelope for SFD and BMD
 SFD = max(abs(SFDi), [], 1); % SFD envelope
 BMD = max(abs(BMDi), [], 1); % BMD envelope
+
+%% 2. Plot Results
+figure;
+subplot(2, 1, 1);
+plot(x, SFD, 'b');
+title('Shear Force Diagram (Envelope)');
+xlabel('Position along the bridge (mm)');
+ylabel('Shear Force (N)');
+grid on;
+
+subplot(2, 1, 2);
+plot(x, BMD, 'r');
+title('Bending Moment Diagram (Envelope)');
+xlabel('Position along the bridge (mm)');
+ylabel('Bending Moment (N·mm)');
+grid on;
 
 %% 2. Define Bridge Parameters
 param = [0, 100, 1.27; 400, 100, 1.27; 800, 100, 1.27; L, 100, 1.27];
