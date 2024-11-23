@@ -1,0 +1,26 @@
+// b is base length, h is height length
+// bot: is the distance from the bottom of the shape to the bottom
+Shape 1
+b: 100
+h: 1.27
+bot: 75
+Shape 2
+b: 1.27
+h: 75
+bot: 0
+Shape 3
+b: 1.27
+h: 75
+bot: 0
+Shape 4
+b: 5
+h: 1.27
+bot: 73.73
+Shape 5
+b: 5
+h: 1.27
+bot: 73.73
+Shape 6
+b: 77.46
+h: 1.27
+bot: 0
