@@ -70,7 +70,7 @@ plot_data(list_x,BME2,"Bending Moment Envelope","Distance Along Bridge (mm)","Ma
 disp("Case 2 Base Case - Max Bending Moment:")
 disp(M_max2)
 
-% exporting data as txt file
+% exporting data as txt file for use in other code
 data_diagrams = [SFE1;BME1;SFE2;BME2];
 data_max = [V_max1;M_max1;V_max2;M_max2];
 writematrix(data_diagrams,"SFE_BME.txt.txt","Delimiter","tab");
