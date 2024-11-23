@@ -1,0 +1,11 @@
+File: SFE_BME
+row 1: Shear force envelope of load case 1
+row 2: Bending moment envelope of load case 1
+row 3: Shear force envelope of load case 2 base case
+row 4: Bending moment envelope of load case 2 base case
+
+File: Vmax_Mmax
+row 1: max shear of load case 1
+row 2: max bending moment of load case 1
+row 3: max shear  of load case 2 base case
+row 4: max bending moment of load case 2 base case

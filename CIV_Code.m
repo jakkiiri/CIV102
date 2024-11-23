@@ -73,8 +73,8 @@ disp(M_max2)
 % exporting data as txt file
 data_diagrams = [SFE1;BME1;SFE2;BME2];
 data_max = [V_max1;M_max1;V_max2;M_max2];
-writematrix(data_diagrams,"SFE_BME.txt");
-writematrix(data_max,"Vmax_Mmax.txt");
+writematrix(data_diagrams,"SFE_BME.txt.txt","Delimiter","tab");
+writematrix(data_max,"Vmax_Mmax.txt.txt","Delimiter","tab");
 
 % Functions
 
