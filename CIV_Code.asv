@@ -79,97 +79,95 @@ disp(M_max2)
 hold
 %%
 % FoS graphs for case 1
-case1_data = [SFE1;BME1];
 [a1, FoS_t, FoS_c, FoS_b, FoS_sh, FoS_shg, FoS_shb] = get_FoS("D:\VS_Code_files\CIV102\FOS_loadcase1.txt");
 
 figure
 subplot(3,2,1) % FoS Tension
 fail_tens1 = FoS_t.*BME1;
-plot_data(list_x,BME1,"Bending Moment","Distance Along Bridge (mm)","Max Bending Moment (Nmm)","Bending Moment Envelope Vs FoS Tension, Case 1")
+plot_data(list_x,fail_tens1,"Bending Moment","Distance Along Bridge (mm)","Max Bending Moment (Nmm)","Bending Moment Envelope Vs FoS Tension, Case 1")
 hold on
-plot(list_x,fail_tens1,"r.-")
-legend("Max Bending Moment (Nmm)", "Fail Tension")
+plot(list_x, BME1,"r.-")
+legend( "Fail Tension","Max Bending Moment (Nmm)")
 
 subplot(3,2,2) % FoS Tension
 fail_comp1 = FoS_c.*BME1;
-plot_data(list_x,BME1,"Bending Moment","Distance Along Bridge (mm)","Max Bending Moment (Nmm)","Bending Moment Envelope Vs FoS Compression, Case 1")
+plot_data(list_x, fail_comp1,"Bending Moment","Distance Along Bridge (mm)","Max Bending Moment (Nmm)","Bending Moment Envelope Vs FoS Compression, Case 1")
 hold on
-plot(list_x,fail_comp1,"r.-")
-legend("Max Bending Moment (Nmm)", "Fail Compression")
+plot(list_x,BME1,"r.-")
+legend("Fail Compression","Max Bending Moment (Nmm)")
 
 subplot(3,2,3) % FoS buckling
 fail_buck1 = FoS_b.*BME1;
-plot_data(list_x,BME1,"Bending Moment","Distance Along Bridge (mm)","Max Bending Moment (Nmm)","Bending Moment Envelope Vs FoS Buckling, Case 1")
+plot_data(list_x,fail_buck1,"Bending Moment","Distance Along Bridge (mm)","Max Bending Moment (Nmm)","Bending Moment Envelope Vs FoS Buckling, Case 1")
 hold on
-plot(list_x,fail_buck1,"r.-")
-legend("Max Bending Moment (Nmm)", "Fail Buckling")
+plot(list_x,BME1 ,"r.-")
+legend("Fail Buckling","Max Bending Moment (Nmm)")
 
 subplot(3,2,4)
 fail_shear1 = FoS_sh.*SFE1;
-plot_data(list_x,SFE1,"Shear Force","Distance Along Bridge (mm)","Max Shear Force (N)","Shear Force Envelope Vs FoS Shear, Case 1")
+plot_data(list_x,fail_shear1,"Shear Force","Distance Along Bridge (mm)","Max Shear Force (N)","Shear Force Envelope Vs FoS Shear, Case 1")
 hold on
-plot(list_x,fail_shear1,"r.-")
-legend("Max Bending Moment (Nmm)", "Fail Shear")
+plot(list_x, SFE1,"r.-")
+legend("Fail Shear","Max Bending Moment (Nmm)")
 
 subplot(3,2,5)
 fail_shglue1 = FoS_shg.*SFE1;
-plot_data(list_x,SFE1,"Shear Force","Distance Along Bridge (mm)","Max Shear Force (N)","Shear Force Envelope Vs FoS Glue Case 1")
+plot_data(list_x,fail_shglue1,"Shear Force","Distance Along Bridge (mm)","Max Shear Force (N)","Shear Force Envelope Vs FoS Glue Case 1")
 hold on
-plot(list_x,fail_shglue1,"r.-")
-legend("Max Bending Moment (Nmm)", "Fail Shear Glue")
+plot(list_x,SFE1 ,"r.-")
+legend("Fail Shear Glue","Max Bending Moment (Nmm)")
 
 subplot(3,2,6)
 fail_shbuck1 = FoS_shb.*SFE1;
-plot_data(list_x,SFE1,"Shear Force","Distance Along Bridge (mm)","Max Shear Force (N)","Shear Force Envelope Vs FoS Shear Buckling Case 1")
+plot_data(list_x,fail_shbuck1,"Shear Force","Distance Along Bridge (mm)","Max Shear Force (N)","Shear Force Envelope Vs FoS Shear Buckling Case 1")
 hold on
-plot(list_x,fail_shbuck1,"r.-")
-legend("Max Bending Moment (Nmm)", "Fail Shear Buckling")
+plot(list_x,SFE1,"r.-")
+legend("Fail Shear Buckling","Max Bending Moment (Nmm)")
 %%
 % FoS graphs for case 2
-case2_data = [SFE2;BME2];
 [a2, FoS_t, FoS_c, FoS_b, FoS_sh, FoS_shg, FoS_shb] = get_FoS("D:\VS_Code_files\CIV102\FOS_loadcase2.txt");
 
 figure
 subplot(3,2,1) % FoS Tension
-fail_tens2 = FoS_t.*case2_data(2);
-plot_data(list_x,BME1,"Bending Moment","Distance Along Bridge (mm)","Max Bending Moment (Nmm)","Bending Moment Envelope Vs FoS Tension, Case 1")
+fail_tens2 = FoS_t.*BME2;
+plot_data(list_x,fail_tens2,"Bending Moment","Distance Along Bridge (mm)","Max Bending Moment (Nmm)","Bending Moment Envelope Vs FoS Tension, Case 2")
 hold on
-plot(list_x,fail_tens1,"r.-")
-legend("Max Bending Moment (Nmm)", "Fail Tension")
+plot(list_x,BME2,"r.-")
+legend( "Fail Tension","Max Bending Moment (Nmm)")
 
 subplot(3,2,2) % FoS Tension
-fail_comp2 = FoS_c.*case2_data(2);
-plot_data(list_x,BME1,"Bending Moment","Distance Along Bridge (mm)","Max Bending Moment (Nmm)","Bending Moment Envelope Vs FoS Compression, Case 1")
+fail_comp2 = FoS_c.*BME2;
+plot_data(list_x,fail_comp2,"Bending Moment","Distance Along Bridge (mm)","Max Bending Moment (Nmm)","Bending Moment Envelope Vs FoS Compression, Case 2")
 hold on
-plot(list_x,fail_comp1,"r.-")
-legend("Max Bending Moment (Nmm)", "Fail Compression")
+plot(list_x,BME2,"r.-")
+legend("Fail Compression","Max Bending Moment (Nmm)")
 
 subplot(3,2,3) % FoS buckling
-fail_buck2 = FoS_b.*case2_data(2);
-plot_data(list_x,BME1,"Bending Moment","Distance Along Bridge (mm)","Max Bending Moment (Nmm)","Bending Moment Envelope Vs FoS Buckling, Case 1")
+fail_buck2 = FoS_b.*BME2;
+plot_data(list_x,BME2,"Bending Moment","Distance Along Bridge (mm)","Max Bending Moment (Nmm)","Bending Moment Envelope Vs FoS Buckling, Case 2")
 hold on
-plot(list_x,fail_buck1,"r.-")
+plot(list_x,fail_buck2,"r.-")
 legend("Max Bending Moment (Nmm)", "Fail Buckling")
 
 subplot(3,2,4) % FoS Shear
-fail_shear2 = FoS_sh.*case2_data(1);
-plot_data(list_x,SFE1,"Shear Force","Distance Along Bridge (mm)","Max Shear Force (N)","Shear Force Envelope Vs FoS Shear, Case 1")
+fail_shear2 = FoS_sh.*SFE2;
+plot_data(list_x,fail_shear2,"Shear Force","Distance Along Bridge (mm)","Max Shear Force (N)","Shear Force Envelope Vs FoS Shear, Case 2")
 hold on
-plot(list_x,fail_shear1,"r.-")
+plot(list_x,SFE2,"r.-")
 legend("Max Bending Moment (Nmm)", "Fail Shear")
 
 subplot(3,2,5) % FoS Shear Glue
-fail_shglue2 = FoS_shg.*case2_data(1);
-plot_data(list_x,SFE1,"Shear Force","Distance Along Bridge (mm)","Max Shear Force (N)","Shear Force Envelope Vs FoS Glue Case 1")
+fail_shglue2 = FoS_shg.*SFE2;
+plot_data(list_x,fail_shglue2,"Shear Force","Distance Along Bridge (mm)","Max Shear Force (N)","Shear Force Envelope Vs FoS Glue Case 2")
 hold on
-plot(list_x,fail_shglue1,"r.-")
+plot(list_x,SFE2,"r.-")
 legend("Max Bending Moment (Nmm)", "Fail Shear Glue")
 
 subplot(3,2,6) % FoS Shear buckling
-fail_shbuck2 = FoS_shb.*case2_data(1);
-plot_data(list_x,SFE1,"Shear Force","Distance Along Bridge (mm)","Max Shear Force (N)","Shear Force Envelope Vs FoS Shear Buckling Case 1")
+fail_shbuck2 = FoS_shb.*SFE2;
+plot_data(list_x,fail_shbuck2,"Shear Force","Distance Along Bridge (mm)","Max Shear Force (N)","Shear Force Envelope Vs FoS Shear Buckling Case 2")
 hold on
-plot(list_x,fail_shbuck1,"r.-")
+plot(list_x,SFE2,"r.-")
 legend("Max Bending Moment (Nmm)", "Fail Shear Buckling")
 %%
 
@@ -281,6 +279,7 @@ end
 % row 5: FoS glue shear
 % row 6: FoS shear buckling
 % created from python code 
+% FoS capped at 100 sinc
 function [all_FoS,FoS_t, FoS_c, FoS_b, FoS_sh, FoS_shg, FoS_shb] = get_FoS(filename)
     %fileID = fopen(filename,"r");
     %FoS_t = str2num(fgetl(fileID));
