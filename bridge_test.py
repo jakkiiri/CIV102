@@ -138,7 +138,7 @@ for x in load2_SFE:
 b = 1.27
 load1_glue_shear_stress = []
 for x in load1_SFE:
-    load1_centroid_shear_stress.append((float(x)*Q_glue)/(I*b))
+    load1_glue_shear_stress.append((float(x)*Q_glue)/(I*b))
 load2_glue_shear_stress = []
 for x in load2_SFE:
     load2_glue_shear_stress.append((float(x)*Q_glue)/(I*b))
@@ -220,7 +220,7 @@ for x in load1_centroid_shear_stress:
         FOS1_shear_buck.append(100)
     else:
         FOS1_shear_buck.append(abs(sigma_shear_buck/x))
-
+print(FOS1_glue_shear)
 # put into txt
 with open("FOS_loadcase1.txt", "w") as file:
     for x in FOS1_tension:
@@ -298,4 +298,3 @@ with open("FOS_loadcase2.txt", "w") as file:
     file.write("\n")
     for x in FOS2_shear_buck:
         file.write(str(x) + " ")
-    
