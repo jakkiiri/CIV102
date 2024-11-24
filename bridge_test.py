@@ -186,95 +186,95 @@ sigma_shear_buck = ((5*math.pi**2*4000)/(12*(1-0.2**2))) * ((t/h)**2 + (t/a)**2)
 # Loading Case 1 FOS
 FOS1_tension = []
 for x in load1_tensile_stress:
-    if (x == 0):
+    if (x == 0) or (abs(30/x) > 100):
         FOS1_tension.append(100)
     else:
         FOS1_tension.append(abs(30/x))
 FOS1_compression = []
 for x in load1_compressive_stress:
-    if (x == 0):
+    if (x == 0) or (abs(6/x) > 100):
         FOS1_compression.append(100)
     else:
         FOS1_compression.append(abs(6/x))
 FOS1_buckling = []
 for x in load1_compressive_stress:
-    if (x == 0):
+    if (x == 0) or (abs(sigma_plate_buck/x) > 100):
         FOS1_buckling.append(100)
     else:
         FOS1_buckling.append(abs(sigma_plate_buck/x))
 FOS1_centroid_shear = []
 for x in load1_centroid_shear_stress:
-    if (x == 0):
+    if (x == 0) or (abs(4/x) > 100):
         FOS1_centroid_shear.append(100)
     else:
         FOS1_centroid_shear.append(abs(4/x))
 FOS1_glue_shear = []
 for x in load1_glue_shear_stress:
-    if (x == 0):
+    if ((x == 0) or abs(2/x) > 100):
         FOS1_glue_shear.append(100)
     else:
         FOS1_glue_shear.append(abs(2/x))
 FOS1_shear_buck = []
 for x in load1_centroid_shear_stress:
-    if (x == 0):
+    if (x == 0) or (abs(sigma_shear_buck/x) > 100):
         FOS1_shear_buck.append(100)
     else:
         FOS1_shear_buck.append(abs(sigma_shear_buck/x))
-print(FOS1_glue_shear)
+
 # put into txt
 with open("FOS_loadcase1.txt", "w") as file:
     for x in FOS1_tension:
-        file.write(str(x) + ", ")
+        file.write(str(x) + " ")
     file.write("\n")
     for x in FOS1_compression:
-        file.write(str(x) + ", ")
+        file.write(str(x) + " ")
     file.write("\n")
     for x in FOS1_buckling:
-        file.write(str(x) + ", ")
+        file.write(str(x) + " ")
     file.write("\n")
     for x in FOS1_centroid_shear:
-        file.write(str(x) + ", ")
+        file.write(str(x) + " ")
     file.write("\n")
     for x in FOS1_glue_shear:
-        file.write(str(x) + ", ")
+        file.write(str(x) + " ")
     file.write("\n")
     for x in FOS1_shear_buck:
-        file.write(str(x) + ", ")
+        file.write(str(x) + " ")
     
 # Loading Case 2 FOS
 FOS2_tension = []
 for x in load2_tensile_stress:
-    if (x == 0):
+    if (x == 0) or (abs(30/x) > 100):
         FOS2_tension.append(100)
     else:
         FOS2_tension.append(abs(30/x))
 FOS2_compression = []
 for x in load2_compressive_stress:
-    if (x == 0):
+    if (x == 0) or (abs(6/x) > 100):
         FOS2_compression.append(100)
     else:
         FOS2_compression.append(abs(6/x))
 FOS2_buckling = []
 for x in load2_compressive_stress:
-    if (x == 0):
+    if (x == 0) or (abs(sigma_plate_buck > 100)):
         FOS2_buckling.append(100)
     else:
         FOS2_buckling.append(abs(sigma_plate_buck/x))
 FOS2_centroid_shear = []
 for x in load2_centroid_shear_stress:
-    if (x == 0):
+    if (x == 0) or (abs(4/x) > 100):
         FOS2_centroid_shear.append(100)
     else:
         FOS2_centroid_shear.append(abs(4/x))
 FOS2_glue_shear = []
 for x in load2_glue_shear_stress:
-    if (x == 0):
+    if (x == 0) or (abs(2/x) > 100):
         FOS2_glue_shear.append(100)
     else:
         FOS2_glue_shear.append(abs(2/x))
 FOS2_shear_buck = []
 for x in load2_centroid_shear_stress:
-    if (x == 0):
+    if (x == 0) or (abs(sigma_shear_buck/x) > 100):
         FOS2_shear_buck.append(100)
     else:
         FOS2_shear_buck.append(abs(sigma_shear_buck/x))
@@ -282,19 +282,19 @@ for x in load2_centroid_shear_stress:
 # put into txt
 with open("FOS_loadcase2.txt", "w") as file:
     for x in FOS2_tension:
-        file.write(str(x) + ", ")
+        file.write(str(x) + " ")
     file.write("\n")
     for x in FOS2_compression:
-        file.write(str(x) + ", ")
+        file.write(str(x) + " ")
     file.write("\n")
     for x in FOS2_buckling:
-        file.write(str(x) + ", ")
+        file.write(str(x) + " ")
     file.write("\n")
     for x in FOS2_centroid_shear:
-        file.write(str(x) + ", ")
+        file.write(str(x) + " ")
     file.write("\n")
     for x in FOS2_glue_shear:
-        file.write(str(x) + ", ")
+        file.write(str(x) + " ")
     file.write("\n")
     for x in FOS2_shear_buck:
-        file.write(str(x) + ", ")
+        file.write(str(x) + " ")
