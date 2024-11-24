@@ -1,4 +1,3 @@
-import numpy as np
 import math
 # This Python Code Does the Necessary Calculations Needed after obtaining the SFE and BME
 # After the maximum force and moment and their respective locations have been determined.
