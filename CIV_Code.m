@@ -80,7 +80,7 @@ hold
 
 % FoS graphs for case 1
 case1_data = [SFE1;BME1];
-[FoS_t, FoS_c, FoS_b, FoS_sh, FoS_shg, FoS_shb] = get_FoS();
+[FoS_t, FoS_c, FoS_b, FoS_sh, FoS_shg, FoS_shb] = get_FoS("D:\VS_Code_files\CIV102\FOS_loadcase1.txt");
 
 figure
 subplot(3,2,1) % FoS Tension
@@ -127,7 +127,7 @@ legend("Max Bending Moment (Nmm)", "FoS Shear Buckling")
 
 % FoS graphs for case 2
 case2_data = [SFE2;BME2];
-[FoS_t, FoS_c, FoS_b, FoS_sh, FoS_shg, FoS_shb] = get_FoS();
+[FoS_t, FoS_c, FoS_b, FoS_sh, FoS_shg, FoS_shb] = get_FoS("D:\VS_Code_files\CIV102\FOS_loadcase2.txt");
 
 figure
 subplot(3,2,1) % FoS Tension
@@ -282,11 +282,18 @@ end
 % row 6: FoS shear buckling
 % created from python code 
 function [FoS_t, FoS_c, FoS_b, FoS_sh, FoS_shg, FoS_shb] = get_FoS(filename)
-    all_FoS = load(filename);
-    FoS_t = all_FoS(1);
-    FoS_c = all_FoS(2);
-    FoS_b = all_FoS(3);
-    FoS_sh = all_FoS(4);
-    FoS_shg = all_FoS(5);
-    FoS_shb = all_FoS(6);
+    fileID = fopen(filename,"r");
+    FoS_t = str2double(fgetl(fileID));
+    FoS_c = str2double(fgetl(fileID));
+    FoS_b = str2double(fgetl(fileID));
+    FoS_sh = str2double(fgetl(fileID));
+    FoS_shg = str2double(fgetl(fileID));
+    FoS_shb = str2double(fgetl(fileID));
+    %all_FoS = load(filename,"idk");
+    %FoS_t = all_FoS(1);
+    %FoS_c = all_FoS(2);
+    %FoS_b = all_FoS(3);
+    %FoS_sh = all_FoS(4);
+    %FoS_shg = all_FoS(5);
+    %FoS_shb = all_FoS(6);
 end
