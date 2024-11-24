@@ -224,22 +224,22 @@ print(FOS1_glue_shear)
 # put into txt
 with open("FOS_loadcase1.txt", "w") as file:
     for x in FOS1_tension:
-        file.write(str(x) + " ")
+        file.write(str(x) + ", ")
     file.write("\n")
     for x in FOS1_compression:
-        file.write(str(x) + " ")
+        file.write(str(x) + ", ")
     file.write("\n")
     for x in FOS1_buckling:
-        file.write(str(x) + " ")
+        file.write(str(x) + ", ")
     file.write("\n")
     for x in FOS1_centroid_shear:
-        file.write(str(x) + " ")
+        file.write(str(x) + ", ")
     file.write("\n")
     for x in FOS1_glue_shear:
-        file.write(str(x) + " ")
+        file.write(str(x) + ", ")
     file.write("\n")
     for x in FOS1_shear_buck:
-        file.write(str(x) + " ")
+        file.write(str(x) + ", ")
     
 # Loading Case 2 FOS
 FOS2_tension = []
@@ -282,19 +282,19 @@ for x in load2_centroid_shear_stress:
 # put into txt
 with open("FOS_loadcase2.txt", "w") as file:
     for x in FOS2_tension:
-        file.write(str(x) + " ")
+        file.write(str(x) + ", ")
     file.write("\n")
     for x in FOS2_compression:
-        file.write(str(x) + " ")
+        file.write(str(x) + ", ")
     file.write("\n")
     for x in FOS2_buckling:
-        file.write(str(x) + " ")
+        file.write(str(x) + ", ")
     file.write("\n")
     for x in FOS2_centroid_shear:
-        file.write(str(x) + " ")
+        file.write(str(x) + ", ")
     file.write("\n")
     for x in FOS2_glue_shear:
-        file.write(str(x) + " ")
+        file.write(str(x) + ", ")
     file.write("\n")
     for x in FOS2_shear_buck:
-        file.write(str(x) + " ")
+        file.write(str(x) + ", ")
