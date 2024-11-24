@@ -36,7 +36,6 @@ for x in range (len(text)):
 for x in shapes.values():
     x.append(x[2] + x[1]/2)
 
-print (shapes)
 # calculate y bar
 sumtop = 0
 sumarea = 0
@@ -53,7 +52,6 @@ for x in shapes.values():
         I += x[0]*x[1]*((x[3]-y_bar)**2) + (x[0]*x[1]**3) / 12
     else:
         I += x[0]*x[1]*((y_bar-x[3])**2) + (x[0]*x[1]**3) / 12
-print(I)
 
 # read sfe & bme
 file_path = "SFE_BME.txt"  
@@ -94,6 +92,7 @@ for x in shapes.values():
             h = x[2] + x[1] - y_bar
             centroid = bot + h / 2
             Q_centroid += b*h*(centroid-y_bar)
+
 Q_glue = 0
 glueLoc = 75
 # check for all shapes above the glue location
@@ -125,7 +124,7 @@ for x in load2_BME:
 
 # array of centroid shear stresses
 # make sure to specify b
-b = 1.27
+b = 2.57
 load1_centroid_shear_stress = []
 for x in load1_SFE:
     load1_centroid_shear_stress.append((float(x)*Q_centroid)/(I*b))
@@ -135,7 +134,7 @@ for x in load2_SFE:
 
 # array of glue shear stresses
 # make sure to specify b
-b = 1.27
+b = 12.54
 load1_glue_shear_stress = []
 for x in load1_SFE:
     load1_glue_shear_stress.append((float(x)*Q_glue)/(I*b))
@@ -182,6 +181,7 @@ t = 1.27
 # specify h
 h = 76.27
 sigma_shear_buck = ((5*math.pi**2*4000)/(12*(1-0.2**2))) * ((t/h)**2 + (t/a)**2)
+print (sigma_shear_buck)
 
 # Loading Case 1 FOS
 FOS1_tension = []
@@ -240,7 +240,7 @@ with open("FOS_loadcase1.txt", "w") as file:
     file.write("\n")
     for x in FOS1_shear_buck:
         file.write(str(x) + " ")
-    
+
 # Loading Case 2 FOS
 FOS2_tension = []
 for x in load2_tensile_stress:
