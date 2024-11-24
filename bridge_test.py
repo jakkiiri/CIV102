@@ -110,18 +110,18 @@ height = 76.27
 # array of tensile stresses
 load1_tensile_stress = []
 for x in load1_BME:
-    load1_tensile_stress.append((float(x)*(76.27-y_bar))/I)
+    load1_tensile_stress.append((float(x)*(y_bar))/I)
 load2_tensile_stress = []
 for x in load2_BME:
-    load2_tensile_stress.append((float(x)*(76.27-y_bar))/I)
+    load2_tensile_stress.append((float(x)*(y_bar))/I)
 
 # array of tensile stresses
 load1_compressive_stress = []
 for x in load1_BME:
-    load1_compressive_stress.append((float(x)*(y_bar))/I)
+    load1_compressive_stress.append((float(x)*(76.27-y_bar))/I)
 load2_compressive_stress = []
 for x in load2_BME:
-    load2_compressive_stress.append((float(x)*(y_bar))/I)
+    load2_compressive_stress.append((float(x)*(76.27-y_bar))/I)
 
 # array of centroid shear stresses
 # make sure to specify b
