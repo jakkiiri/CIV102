@@ -79,7 +79,7 @@ disp(M_max2)
 hold
 %%
 % FoS graphs for case 1
-[a1, FoS_t, FoS_c, FoS_b, FoS_sh, FoS_shg, FoS_shb] = get_FoS("D:\VS_Code_files\CIV102\FOS_loadcase1.txt");
+[a1, FoS_t, FoS_c, FoS_b, FoS_sh, FoS_shg, FoS_shb] = get_FoS("FOS_loadcase1.txt");
 
 figure
 subplot(3,2,1) % FoS Tension
@@ -138,7 +138,7 @@ disp("FoS Shear Buckling")
 disp(min(FoS_shb))
 %%
 % FoS graphs for case 2
-[a2, FoS_t, FoS_c, FoS_b, FoS_sh, FoS_shg, FoS_shb] = get_FoS("D:\VS_Code_files\CIV102\FOS_loadcase2.txt");
+[a2, FoS_t, FoS_c, FoS_b, FoS_sh, FoS_shg, FoS_shb] = get_FoS("FOS_loadcase2.txt");
 
 figure
 subplot(3,2,1) % FoS Tension

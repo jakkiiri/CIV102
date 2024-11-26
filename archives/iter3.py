@@ -93,7 +93,7 @@ for x in shapes.values():
             Q_centroid += b*h*(centroid-y_bar)
 
 Q_glue = 0
-glueLoc = 117.46
+glueLoc = 76.27
 # check for all shapes above the glue location
 for x in shapes.values():
     # check bottom
@@ -104,7 +104,7 @@ for x in shapes.values():
             Q_glue += x[0]*x[1]*(y_bar-x[3])
 
 # total height adjust if needed
-height = 120
+height = 77.54
 # array of tensile stresses
 load1_tensile_stress = []
 for x in load1_BME:
@@ -144,7 +144,7 @@ for x in load2_SFE:
 # Plate Buckling
 # Case 1
 # specify b depending on the scross section cut
-b = 57.46
+b = 67.46
 # specify t
 t = 1.27
 # specify k
@@ -153,7 +153,7 @@ sigma_buck_1 = ((k * math.pi**2 * 4000) / (12 * (1 - 0.2**2))) * ((t / b) ** 2)
 
 # Case 2
 # specify b depending on the scross section cut
-b = 15
+b = 10
 # specify t
 t = 1.27
 # specify k
@@ -162,7 +162,7 @@ sigma_buck_2 = ((k * math.pi**2 * 4000) / (12 * (1 - 0.2**2))) * ((t / b) ** 2)
 
 # Case 3
 # specify b depending on the scross section cut
-b = 30.46
+b = 33.6
 # specify t
 t = 1.27
 # specify k
@@ -173,14 +173,13 @@ sigma_buck_3 = ((k * math.pi**2 * 4000) / (12 * (1 - 0.2**2))) * ((t / b) ** 2)
 sigma_plate_buck = min(sigma_buck_1, sigma_buck_2, sigma_buck_3)
 
 
-
 # Shear Buckling
 # specify b depending on the scross section cut
-a = 100
+a = 400
 # specify t
 t = 1.27
 # specify h
-h = 120
+h = 77.54
 sigma_shear_buck = ((5*math.pi**2*4000)/(12*(1-0.2**2))) * ((t/h)**2 + (t/a)**2)
 print (sigma_shear_buck)
 
